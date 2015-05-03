@@ -6,6 +6,8 @@
 </head>
 <body>
 <script>
+
+    /********************** Tarih **********************/
     // Daha sonra getMonth ayın sayısını verdiği için ayları bu array'den kullanacağız
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     // dateNow objesini yeni bir Date objesi olarak yaratıyoruz
@@ -38,9 +40,46 @@
             break;
     }
 
-    document.write("It is the " + dayNow + daySuffix + "day ");
+    document.write("It is the " + dayNow + daySuffix + " day ");
     document.write("in the month of " + monthNow);
     document.write(" in the year " + yearNow);
+
+    /********************** Saat **********************/
+
+    //Karşılama mesajımızı yazacağımız değişkeni tanımlayalım
+    var greeting;
+    // Şimdiki zamanı saklayacağımız objeyi tanımlıyoruz
+    var nowDate = new Date();
+    // Saati tanımladığımız objeden getHours metodu ile alıyoruz
+    var nowHour = nowDate.getHours();
+    // Dakikayı objemizden getMinutes metodu ile alıyoruz
+    var nowMinute = nowDate.getMinutes();
+    // Saniyeyi objemizden getSeconds metodu ile alıyoruz
+    var nowSecond = nowDate.getSeconds();
+
+    // Dakika 10'dan küçükse önüne sıfır koyuyoruz
+    if (nowMinute < 10) {
+        nowMinute = "0" + nowMinute;
+    }
+
+    // Saniye 10'dan küçükse önüne sıfır koyuyoruz
+    if (nowSecond < 10) {
+        nowSecond = "0" + nowSecond;
+    }
+
+    //Sabah, Öğle ve Akşam saatlerini ayırıyoruz ve greeting mesajını tanımlıyoruz
+    if (nowHour < 12) {
+        greeting = "Good Morning";
+    } else if (nowHour < 17) {
+        greeting = "Good Afternoon";
+    } else {
+        greeting = "Good Evening";
+    }
+
+    document.write("<h4>" + greeting + " and welcome" + "</h4>");
+    document.write("According to your clock the time is ");
+    document.write(nowHour + ":" + nowMinute + ":" + nowSecond);
+
 
 
 </script>
