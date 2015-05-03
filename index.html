@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // Daha sonra getMonth ayın sayısını verdiği için ayları bu array'den kullanacağız
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // dateNow objesini yeni bir Date objesi olarak yaratıyoruz
+    var dateNow = new Date();
+    // getFullYear ile yılı 4 haneli olarak alabiliyorz
+    var yearNow = dateNow.getFullYear();
+    // getMonth ayı sayı olarak veriyor ve onu array indexine koyarak string olarak kullanıyoruz
+    var monthNow = months[dateNow.getMonth()];
+    // getDate ayın kaçıncı gününde olduğumuzu veriyor
+    var dayNow = dateNow.getDate();
+    // Gün eki "yirmi ikinci" gibi
+    var daySuffix;
+    // switch kullanarak hangi gündeysek ona bir suffix ekliyoruz.
+    switch (dayNow) {
+        case 1:
+        case 21:
+        case 31:
+            daySuffix = "st";
+            break;
+        case 2:
+        case 22:
+            daySuffix = "nd";
+            break;
+        case 3:
+        case 23:
+            daySuffix = "rd";
+            break;
+        default :
+            daySuffix = "th";
+            break;
+    }
+
+    document.write("It is the " + dayNow + daySuffix + "day ");
+    document.write("in the month of " + monthNow);
+    document.write(" in the year " + yearNow);
+
+
+</script>
+</body>
+</html>
